@@ -28,4 +28,50 @@ const GALLERY = [
 const $ = (selector) => document.querySelector(selector);
 const CLP = (n) => `$${n.toLocaleString('es-CL')}`;
 
-// Render de Servicios
+// 3) Render de Servicios
+function renderServicios() {
+  const cont = $('#servicios');
+  cont.innerHTML = SERVICES
+    .filter(s => s.activo)
+    .map(s => `
+      <article class="card">
+        <h3>${s.nombre}</h3>
+        <p>Duración: ${s.duracionMin} min</p>
+        <p class="price">${CLP(s.precio)}</p>
+        <button class="btn-reservar" data-service="${s.id}">Reservar</button>
+      </article>
+    `).join('');
+
+  // Delegación de eventos: escucha un solo click en el contenedor
+  cont.addEventListener('click', onReservarClick, { once: true });
+}
+
+function onReservarClick(e) {
+  const btn = e.target.closest('.btn-reservar');
+  if (!btn) return; // click fuera de botones
+  const serviceId = Number(btn.dataset.service);
+
+  // Guardamos el servicio elegido para el siguiente paso (modal)
+  sessionStorage.setItem('serviceToBook', String(serviceId));
+
+  // Placeholder de aprendizaje:
+  // En el Paso 2 abriremos un modal para login/registro/invitado.
+  alert('Perfecto. En el próximo paso abriremos el modal de autenticación.\nServicio ID: ' + serviceId);
+
+  // Tip: si quieres que el listener siga funcionando para más clicks:
+  e.currentTarget.addEventListener('click', onReservarClick, { once: true });
+}
+
+// 4) Render de Galería
+function renderGaleria() {
+  const cont = $('#galeria');
+  cont.innerHTML = GALLERY.map(img =>
+    `<img src="${img.url}?auto=format&fit=crop&w=800&q=60" alt="${img.alt}">`
+  ).join('');
+}
+
+// 5) Arranque
+document.addEventListener('DOMContentLoaded', () => {
+  renderServicios();
+  renderGaleria();
+});
