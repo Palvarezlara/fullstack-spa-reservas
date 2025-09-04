@@ -103,23 +103,23 @@ git checkout -b feature/estructura-html
 
 En esta rama vas a dejar listo el esqueleto de todas las páginas (aunque estén vacías).
 
-index.html
+-index.html
 
-productos.html
+-productos.html
 
-producto.html
+-producto.html
 
-blogs.html
+-blogs.html
 
-blog-detalle.html
+--blog-detalle.html
 
-nosotros.html
+-nosotros.html
 
-contacto.html
+-contacto.html
 
-login.html
+-login.html
 
-registro.html
+-registro.html
 
 Con solo <header>, <main> y <footer> ya cumple para el primer commit.
 
