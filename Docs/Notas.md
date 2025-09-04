@@ -146,28 +146,28 @@ Ahora en tu repo aparecerá la rama nueva. 🎉
 
 📌 Paso 5 — Pull Request
 
-Entra a GitHub → verás un aviso tipo “feature/estructura-html had recent pushes. Compare & pull request”.
+1.- Entra a GitHub → verás un aviso tipo “feature/estructura-html had recent pushes. Compare & pull request”.
 
-Abres un Pull Request (PR) hacia main.
+2.- Abres un Pull Request (PR) hacia main.
 
-Puedes escribir un resumen profesional, ejemplo:
+3.- Puedes escribir un resumen profesional, ejemplo:
 
-✨ Estructura inicial
+        ✨ Estructura inicial
 
-Se crean todas las páginas requeridas (index, productos, blogs, etc.).
+        Se crean todas las páginas requeridas (index, productos, blogs, etc.).
 
-Se incluye HTML semántico mínimo (header, main, footer).
+        Se incluye HTML semántico mínimo (header, main, footer).
 
-Le das Merge.
+4.- Le das Merge.
 
 📌 Paso 6 — Continuar con nuevas ramas
 
 Cada vez que termines una parte:
 
-Regresa a main:
+1.- Regresa a main:
 
-git checkout main
-git pull origin main
+        git checkout main
+        git pull origin main
 
 
 Crea una nueva rama de feature:
