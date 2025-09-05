@@ -1,0 +1,10 @@
+# netlify.toml (en la raíz)
+[build]
+  command = ""                      # sin build (HTML estático)
+  publish = "frontend/ra1-landing"  # carpeta que contiene index.html
+
+# (Opcional) URLs sin .html
+[[redirects]]
+  from = "/:page"
+  to = "/:page.html"
+  status = 200
