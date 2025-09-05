@@ -64,7 +64,7 @@
 
 /* === Cards === */
 .hover-card .card-img-top {
-  height: 250px;
+  height: 200px;
   object-fit: cover;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .card-img-top {
-  height: 220px;   /* altura fija */
+  height: 250px;   /* altura fija */
   object-fit: cover;
 }
 
@@ -129,3 +129,18 @@
   --bs-btn-disabled-bg: transparent;
   --bs-btn-disabled-border-color: var(--brand);
 }
+#cartCount { display: inline-block !important; }
+
+/* Ajuste fino del badge del carrito */
+.badge-cart{
+  font-size: .65rem;
+  padding: .25em .35em;
+  /* corrige leve solape con el borde del botón */
+  transform: translate(-55%, -40%) !important;
+}
+
+/* En móviles, se oculta el texto "Carrito" y dejar solo el ícono */
+@media (max-width: 575px){
+  .btn[href="carrito.html"] .d-sm-inline { display: none !important; }
+}
+
