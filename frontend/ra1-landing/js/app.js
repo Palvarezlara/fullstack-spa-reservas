@@ -48,5 +48,29 @@ function renderCategorias() {
   }
 }
 
+function renderDestacados() {
+  const $dest = document.querySelector('#destacados .row');
+  if (!$dest) return;
+  const SKUS = ["BOSQUE60","PIED60","OLIVO90"]; 
+  const items = SERVICIOS.filter(s => SKUS.includes(s.sku));
+
+  $dest.innerHTML = '';
+  for (const s of items) {
+    $dest.insertAdjacentHTML('beforeend', `
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <img src="${s.img}" class="card-img-top" alt="${s.nombre}">
+          <div class="card-body d-flex flex-column">
+            <h3 class="h6">${s.nombre}</h3>
+            <p class="text-muted mb-2">${new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(s.precio)}</p>
+            <a href="producto.html" class="btn btn-outline-success mt-auto">Ver detalle</a>
+            <button class="btn btn-success mt-2" data-sku="${s.sku}">Agregar</button>
+          </div>
+        </div>
+      </div>
+    `);
+  }
+}
 // Arranque
 document.addEventListener('DOMContentLoaded', renderCategorias);
+document.addEventListener('DOMContentLoaded', renderDestacados);
