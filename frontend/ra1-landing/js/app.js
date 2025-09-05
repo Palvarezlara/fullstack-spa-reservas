@@ -22,7 +22,7 @@ const mapCatToEl = {
 function cardHTML({ sku, nombre, precio, img }) {
   const precioCLP = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(precio);
   return `
-    <div class="col-12 col-md-6 col-lg-4">
+    <div class="col-12 col-md-6 col-lg-3">
       <div class="card h-100 shadow-sm">
         <img src="${img}" class="card-img-top" alt="${nombre}">
         <div class="card-body d-flex flex-column">
@@ -51,13 +51,13 @@ function renderCategorias() {
 function renderDestacados() {
   const $dest = document.querySelector('#destacados .row');
   if (!$dest) return;
-  const SKUS = ["BOSQUE60","PIED60","OLIVO90"]; 
+  const SKUS = ["BOSQUE60","PIED60","OLIVO90","RELAX60"]; 
   const items = SERVICIOS.filter(s => SKUS.includes(s.sku));
 
   $dest.innerHTML = '';
   for (const s of items) {
     $dest.insertAdjacentHTML('beforeend', `
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-3">
         <div class="card h-100 shadow-sm">
           <img src="${s.img}" class="card-img-top" alt="${s.nombre}">
           <div class="card-body d-flex flex-column">
@@ -71,6 +71,15 @@ function renderDestacados() {
     `);
   }
 }
+// Back to top
+const $top = document.getElementById('backToTop');
+if ($top) {
+  window.addEventListener('scroll', () => {
+    $top.style.display = window.scrollY > 300 ? 'inline-block' : 'none';
+  });
+  $top.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+
 // Arranque
 document.addEventListener('DOMContentLoaded', renderCategorias);
 document.addEventListener('DOMContentLoaded', renderDestacados);
