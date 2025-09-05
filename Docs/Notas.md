@@ -174,5 +174,29 @@ Crea una nueva rama de feature:
 
 git checkout -b feature/bootstrap-layout
 
+Pasos para actualizar tu rama con main:
+Cambia a tu rama: Asegúrate de estar en la rama que quieres actualizar. 
+Código
 
-✅ Con esto tu repo se verá profesional y colaborativo, aunque trabajes sola.
+    git checkout <tu-rama>
+Actualiza tu rama local: Trae los últimos cambios del repositorio remoto a tu rama actual para evitar conflictos. 
+Código
+
+    git pull
+Actualiza main localmente (opcional pero recomendado): Esto asegura que tu rama local main también esté actualizada con la última versión del remoto. 
+Código
+
+    git checkout main
+    git pull
+Vuelve a tu rama y fusiona: Ahora, cambia de nuevo a tu rama de trabajo y ejecuta el comando git merge para traer los cambios de main a tu rama. 
+Código
+
+    git checkout <tu-rama>
+    git merge main
+1. Resuelve conflictos (si los hay):
+Si Git encuentra conflictos (cambios en las mismas líneas de un archivo en ambas ramas), detendrá la fusión. Tendrás que abrir los archivos afectados, resolver manualmente los conflictos y luego añadir y confirmar los cambios. 
+2. Sube los cambios al repositorio remoto:
+Una vez que la fusión se ha completado sin conflictos, puedes subir los cambios a tu rama en el repositorio remoto. 
+Código
+
+    git push
