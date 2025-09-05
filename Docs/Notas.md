@@ -26,6 +26,18 @@ feature/bootstrap-layout
 
         style: ajustes personalizados en bootstrap-overrides.css
 
+feature/localstorage-reservas
+
+        Objetivo: simular reservas/carrito usando localStorage.
+
+        Commits sugeridos:
+
+        feat: guardar reservas en localStorage
+
+        feat: mostrar reservas almacenadas en página de usuario
+
+        fix: corregir duplicados en reservas de localStorage
+
 feature/forms-validation
 
         Objetivo: formularios (login, registro, contacto) con validación en HTML5 y mensajes dinámicos en JS.
@@ -39,18 +51,6 @@ feature/forms-validation
         feat: validar login con JS y mostrar alertas
 
         style: personalizar estilos de formularios
-
-feature/localstorage-reservas
-
-        Objetivo: simular reservas/carrito usando localStorage.
-
-        Commits sugeridos:
-
-        feat: guardar reservas en localStorage
-
-        feat: mostrar reservas almacenadas en página de usuario
-
-        fix: corregir duplicados en reservas de localStorage
 
 feature/darkmode-tooltips (opcional, pero queda precioso 👀)
 
