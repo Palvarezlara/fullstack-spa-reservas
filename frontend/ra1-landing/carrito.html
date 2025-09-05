@@ -53,19 +53,58 @@
     </nav>
   </header>
 
-  <main>
+  <main class="py-4">
     <!-- contenido principal -->
+    <div class="container">
+      <h1 class="h3 mb-4">Tu Carrito</h1>
+
+      <!-- Estado vacío del carrito -->
+      <div class="alert alert-info d-none" id="emptyState">
+        Tu carrito está vacío. <a href="productos.html" class="alert-link">Servicios</a> para agregar terapias.
+      </div>
+      <!--Tabla del carrito-->
+      <div class="table-responsive">
+        <table class="table align-middle">
+          <thead class="table-ligth">
+            <tr>
+              <th>Servicio</th>
+              <th class="text-end">Precio</th>
+              <th class="text-center">Cantidad</th>
+              <th class="text-end">Subtotal</th>
+              <th class="text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="cartBody"><!--se llena con JS--></tbody>
+          <tfoot>
+            <tr>
+              <th class="text-end" colspan="3">Total</th>
+              <th class="text-end"><span id="cartTotal">$0</span></th>
+              <th></th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <!--Acciones-->
+      <div class="d-flex gap-2 justify-content-end">
+        <button class="btn btn-outline-secondary" id="clearCart">Vaciar carrito</button>
+        <a id="checkout" href="login.html" class="btn btn-success">Proceder a reservar</a>
+      </div>
+    </div>
   </main>
 
   <footer class="bg-dark text-light text-center py-3 mt-5">
     <small>© 2025 SPA del Bosque — Mar–Dom 10:00–20:00</small>
   </footer>
+
   <!-- Toasts Bootstrap -->
   <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastArea"></div>
+  
   <!-- Bootstrap JS (toggler, toasts, etc.) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="module" src="js/app.js"></script>
+  <!-- Script para manejar el carrito -->
   <script type="module" src="js/carrito.js"></script>
+  <script type="module" src="js/carrito-page.js"></script>
 
 </body>
 
