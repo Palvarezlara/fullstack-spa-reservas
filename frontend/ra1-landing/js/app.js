@@ -1,13 +1,14 @@
 // js/app.js
 import { SERVICIOS } from './data.js';
+window.SERVICIOS = SERVICIOS; // exposición rápida para otros módulos
 
 // Selecciona contenedores por categoría (usa los IDs de productos.html)
-const $masajes      = document.querySelector('#masajes .row');
-const $corporales   = document.querySelector('#corporales .row');
-const $circuitos    = document.querySelector('#circuitos .row');
+const $masajes = document.querySelector('#masajes .row');
+const $corporales = document.querySelector('#corporales .row');
+const $circuitos = document.querySelector('#circuitos .row');
 const $individuales = document.querySelector('#individuales .row');
-const $parejas      = document.querySelector('#parejas .row');
-const $amigas       = document.querySelector('#escapada-amigas .row');
+const $parejas = document.querySelector('#parejas .row');
+const $amigas = document.querySelector('#escapada-amigas .row');
 
 const mapCatToEl = {
   'masajes': $masajes,
@@ -29,7 +30,8 @@ function cardHTML({ sku, nombre, precio, img }) {
           <h3 class="h6">${nombre}</h3>
           <p class="text-muted mb-2">${precioCLP}</p>
           <a href="producto.html" class="btn btn-outline-success mt-auto">Ver detalle</a>
-          <button class="btn btn-success mt-2" data-sku="${sku}">Agregar</button>
+          <a href="#" class="btn btn-outline-success mt-2 btn-agendar" data-sku="RELAX60">Agendar</a>
+          <button class="btn btn-success mt-2 .btn-agendar" data-sku="${sku}">Agregar</button>
         </div>
       </div>
     </div>
@@ -51,7 +53,7 @@ function renderCategorias() {
 function renderDestacados() {
   const $dest = document.querySelector('#destacados .row');
   if (!$dest) return;
-  const SKUS = ["BOSQUE60","PIED60","OLIVO90","RELAX60"]; 
+  const SKUS = ["BOSQUE60", "PIED60", "OLIVO90", "RELAX60"];
   const items = SERVICIOS.filter(s => SKUS.includes(s.sku));
 
   $dest.innerHTML = '';
@@ -62,10 +64,11 @@ function renderDestacados() {
           <img src="${s.img}" class="card-img-top" alt="${s.nombre}">
           <div class="card-body d-flex flex-column">
             <h3 class="h6">${s.nombre}</h3>
-            <p class="text-muted mb-2">${new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(s.precio)}</p>
+            <p class="text-muted mb-2">${new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(s.precio)}</p>
             <a href="producto.html" class="btn btn-outline-success mt-auto">Ver detalle</a>
-            <button class="btn btn-success mt-2" data-sku="${s.sku}">Agregar</button>
-          </div>
+            <a href="#" class="btn btn-outline-success mt-2 btn-agendar" data-sku="${s.sku}">Agendar</a>
+            <button class="btn btn-success mt-2 .btn-agendar" data-sku="${s.sku}">Agregar</button>
+            </div>
         </div>
       </div>
     `);
