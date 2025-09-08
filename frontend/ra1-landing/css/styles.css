@@ -144,3 +144,10 @@
   .btn[href="carrito.html"] .d-sm-inline { display: none !important; }
 }
 
+/* chips más compactos dentro del modal */
+#therapists .btn, #days .btn { border-radius: 999px; }
+
+/* botón de slot seleccionado */
+.slot.active { background: var(--bs-success); color: #fff; border-color: var(--bs-success); }
+
+
