@@ -2,7 +2,7 @@
 import { SERVICIOS } from './data.js';
 window.SERVICIOS = SERVICIOS; // exposición rápida para otros módulos
 
-// Selecciona contenedores por categoría (usa los IDs de productos.html)
+// Seleccionar contenedores por categoría (usa los IDs de productos.html)
 const $masajes = document.querySelector('#masajes .row');
 const $corporales = document.querySelector('#corporales .row');
 const $circuitos = document.querySelector('#circuitos .row');
@@ -27,7 +27,7 @@ function cardHTML({ sku, nombre, precio, img }) {
       <div class="card h-100 shadow-sm">
         <img src="${img}" class="card-img-top" alt="${nombre}">
         <div class="card-body d-flex flex-column">
-          <h3 class="h6">${nombre}</h3>
+          <h3 class="h6">${nombre} <i class="bi bi-clock"></i></h3>
           <p class="text-muted mb-2">${precioCLP}</p>
           <a href="producto.html" class="btn btn-outline-success mt-auto">Ver detalle</a>
           <a href="#" class="btn btn-outline-success mt-2 btn-agendar" data-sku="RELAX60">Agendar</a>
@@ -63,7 +63,7 @@ function renderDestacados() {
         <div class="card h-100 shadow-sm">
           <img src="${s.img}" class="card-img-top" alt="${s.nombre}">
           <div class="card-body d-flex flex-column">
-            <h3 class="h6">${s.nombre}</h3>
+            <h3 class="h6">${s.nombre} <i class="bi bi-clock"></i></h3>
             <p class="text-muted mb-2">${new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(s.precio)}</p>
             <a href="producto.html" class="btn btn-outline-success mt-auto">Ver detalle</a>
             <a href="#" class="btn btn-outline-success mt-2 btn-agendar" data-sku="${s.sku}">Agendar</a>
