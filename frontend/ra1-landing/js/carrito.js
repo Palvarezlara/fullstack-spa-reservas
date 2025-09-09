@@ -1,5 +1,6 @@
 console.log('[carrito.js] cargado');
 
+
 //1) Config
 const cartKey = 'spa_cart';
 
@@ -90,3 +91,11 @@ function handleGlobalClicks(e) {
 //7) Arranque
 document.addEventListener('click', handleGlobalClicks);
 document.addEventListener('DOMContentLoaded', () => renderCartCount());
+
+
+
+//// Extras para la página carrito.html
+///En el modal dar opción de compra de giftcard o de reservar cita
+///en carrito colocar el nombre del usuario si está logueado
+///en carrito agregar una columna de detalle de agendamiento (fecha/hora) o Giftcard
+
