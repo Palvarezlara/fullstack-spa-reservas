@@ -13,7 +13,7 @@ function renderAuthArea() {
         authArea.innerHTML = `
         <a class="btn btn-success" href="login.html">Ingresar</a>
         `;
-        if (cartBtn) area.prepend(cartBtn); // reinsertar el carrito
+        if (cartBtn) authArea.prepend(cartBtn); // reinsertar el carrito
         return;
     }
 

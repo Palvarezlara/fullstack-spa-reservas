@@ -1,4 +1,4 @@
-import { isLoggedIn, currentUser }  from "./seesion-ui.js";
+import { isLoggedIn, currentUser }  from "./session-ui.js";
 
 //Lógica Solo para carrito.html (render, sumar/restar/eliminar, total)
 
