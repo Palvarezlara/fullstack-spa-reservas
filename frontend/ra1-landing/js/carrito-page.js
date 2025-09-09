@@ -1,3 +1,5 @@
+import { isLoggedIn, currentUser }  from "./seesion-ui.js";
+
 //Lógica Solo para carrito.html (render, sumar/restar/eliminar, total)
 
 const cartKey = 'spa_cart';
@@ -5,6 +7,8 @@ const $body = document.getElementById('cartBody');
 const $total = document.getElementById('cartTotal');
 const $empty = document.getElementById('emptyState');
 const $clear = document.getElementById('clearCart');
+const $checkout = document.getElementById('checkout');
+const $userHint = document.getElementById('cartUserHint');
 
 const CLP = new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 });
 
@@ -45,6 +49,38 @@ function writeCart(items) {
         badge.textContent = totalQty;
         badge.style.display = 'inline-block';
     }
+}
+
+// Saludo y CTA
+function setCartHeaderAndCTA() {
+  if ($userHint) {
+    if (isLoggedIn()) {
+      const u = currentUser();
+      $userHint.textContent = `— Hola, ${u?.nombre}`;
+    } else {
+      $userHint.textContent = '';
+    }
+  }
+
+  if ($checkout) {
+    if (isLoggedIn()) {
+      $checkout.textContent = 'Proceder a pagar / reservar';
+      $checkout.classList.remove('btn-outline-success');
+      $checkout.classList.add('btn-success');
+      // Por ahora en login a futuro a método de pago
+      $checkout.setAttribute('href', '#'); // TODO: método de pago / confirmación
+      // Para bloquear cuando no hay items:
+      $checkout.toggleAttribute('disabled', readCart().length === 0);
+    } else {
+      $checkout.textContent = 'Iniciar sesión para reservar';
+      $checkout.setAttribute('href', 'login.html');
+      $checkout.removeAttribute('disabled');
+      // Guardar retorno
+      $checkout.addEventListener('click', () => {
+        sessionStorage.setItem('afterLogin', 'carrito.html');
+      }, { once: true });
+    }
+  }
 }
 
 // --- Render de fila ---
@@ -153,6 +189,7 @@ function handleClear(){
 //Init
 document.addEventListener('DOMContentLoaded', () => {
     renderCart();
-    $body.addEventListener('click', handleActions);
-    $clear.addEventListener('click', handleClear);
+    if ($body)   $body.addEventListener('click', handleActions);
+    if ($clear)  $clear.addEventListener('click', handleClear);
+    setCartHeaderAndCTA();
 });
