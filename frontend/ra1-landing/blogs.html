@@ -36,23 +36,74 @@
             <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
           </ul>
 
-        <!-- Acciones a la derecha (carrito + auth) -->
-        <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0" id="authArea">
-          <!-- aquí JS pintará: botón Ingresar o dropdown con Hola, Nombre + Cerrar sesión -->
-          <a href="carrito.html" class="btn btn-outline-success position-relative">
-            <i class="bi bi-cart3 me-1"></i>
-            <span id="cartCount"
-              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success badge-cart">0</span>
-            <span class="visually-hidden">items en el carrito</span>
-          </a>
-        </div>
+          <!-- Acciones a la derecha (carrito + auth) -->
+          <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0" id="authArea">
+            <!-- aquí JS pintará: botón Ingresar o dropdown con Hola, Nombre + Cerrar sesión -->
+            <a href="carrito.html" class="btn btn-outline-success position-relative">
+              <i class="bi bi-cart3 me-1"></i>
+              <span id="cartCount"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success badge-cart">0</span>
+              <span class="visually-hidden">items en el carrito</span>
+            </a>
+          </div>
         </div>
       </div>
     </nav>
   </header>
 
-  <main>
-    <!-- contenido principal -->
+  <header class="py-5 bg-light border-bottom">
+    <div class="container">
+      <h1 class="display-6">Blog de bienestar</h1>
+      <p class="lead mb-0">Consejos, rutinas y novedades para cuidarte cuerpo y mente.</p>
+    </div>
+  </header>
+
+  <main class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Card blog 1 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card h-100 shadow-sm">
+            <img src="img/SPA-aceites-escenciales-300x300-1.jpg" class="card-img-top" alt="Respiración consciente">
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5">Respiración consciente: reduce el estrés en 5 minutos</h3>
+              <p class="text-muted small mb-2">Por Equipo SPA — 05/09/2025</p>
+              <p class="flex-grow-1">Aprende una técnica breve para calmar el sistema nervioso antes de dormir o después
+                del trabajo…</p>
+              <a class="btn btn-outline-success mt-auto" href="blog-detalle.html?id=respiracion">Leer más</a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card blog 2 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card h-100 shadow-sm">
+            <img src="img/spa-piedras-calientes-300x300-1.jpg" class="card-img-top" alt="Masaje con piedras">
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5">Beneficios del masaje con piedras calientes</h3>
+              <p class="text-muted small mb-2">Por Viviana — 01/09/2025</p>
+              <p class="flex-grow-1">La termoterapia mejora la circulación y libera tensiones profundas. Te contamos
+                cómo se realiza…</p>
+              <a class="btn btn-outline-success mt-auto" href="blog-detalle.html?id=piedras">Leer más</a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card blog 3 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card h-100 shadow-sm">
+            <img src="img/Productos/circuito.png" class="card-img-top" alt="Circuito de aguas">
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5">Circuito de aguas: guía para tu primera vez</h3>
+              <p class="text-muted small mb-2">Por Rosa — 28/08/2025</p>
+              <p class="flex-grow-1">Qué llevar, cómo prepararte y qué esperar de las distintas temperaturas del
+                circuito…</p>
+              <a class="btn btn-outline-success mt-auto" href="blog-detalle.html?id=circuito">Leer más</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer class="bg-dark text-light text-center py-3 mt-5">

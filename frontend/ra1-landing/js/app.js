@@ -29,7 +29,7 @@ function cardHTML({ sku, nombre, precio, img }) {
         <div class="card-body d-flex flex-column">
           <h3 class="h6">${nombre} <i class="bi bi-clock"></i></h3>
           <p class="text-muted mb-2">${precioCLP}</p>
-          <a href="producto.html" class="btn btn-outline-success mt-auto">Ver detalle</a>
+          <a href="producto.html?sku=${sku}" class="btn btn-outline-success mt-auto">Ver detalle</a>
           <a href="#" class="btn btn-outline-success mt-2 btn-agendar" data-sku="RELAX60">Agendar</a>
           <button class="btn btn-success mt-2 .btn-agendar" data-sku="${sku}">Agregar</button>
         </div>
@@ -65,7 +65,7 @@ function renderDestacados() {
           <div class="card-body d-flex flex-column">
             <h3 class="h6">${s.nombre} <i class="bi bi-clock"></i></h3>
             <p class="text-muted mb-2">${new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', maximumFractionDigits: 0 }).format(s.precio)}</p>
-            <a href="producto.html" class="btn btn-outline-success mt-auto">Ver detalle</a>
+            <a href="producto.html?sku=${s.sku}" class="btn btn-outline-success mt-auto">Ver detalle</a>
             <a href="#" class="btn btn-outline-success mt-2 btn-agendar" data-sku="${s.sku}">Agendar</a>
             <button class="btn btn-success mt-2 .btn-agendar" data-sku="${s.sku}">Agregar</button>
             </div>
