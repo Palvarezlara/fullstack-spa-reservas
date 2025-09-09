@@ -34,6 +34,20 @@
 
   --bs-border-color: var(--gray-4);
 }
+/* === Estructura de la página === */
+html, body {
+  height: 100%;           /* importante para que 100vh funcione bien */
+}
+
+body {
+  min-height: 100vh;      /* ocupa al menos la altura de la ventana */
+  display: flex;
+  flex-direction: column; /* vertical */
+}
+
+main {
+  flex: 1;                /* se expande para empujar el footer hacia abajo */
+}
 
 /* Utilidades propias */
 .text-brand {

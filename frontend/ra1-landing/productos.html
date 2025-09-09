@@ -36,11 +36,9 @@
             <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
           </ul>
 
-          <!-- Acciones a la derecha (carrito + ingresar) -->
-          <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
-            <!-- Ingresar como botón sólido -->
-            <a class="btn btn-success" href="login.html">Ingresar</a>
-            <!-- Carrito como botón outline para diferenciarlo -->
+          <!-- Acciones a la derecha (carrito + auth) -->
+          <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0" id="authArea">
+            <!-- aquí JS pintará: botón Ingresar o dropdown con Hola, Nombre + Cerrar sesión -->
             <a href="carrito.html" class="btn btn-outline-success position-relative">
               <i class="bi bi-cart3 me-1"></i>
               <span id="cartCount"
@@ -119,67 +117,67 @@
     style="right: 1rem; bottom: 1rem; display:none; z-index:1030;" aria-label="Volver arriba">↑</button>
 
   <!-- Modal: Agendar servicio -->
-<div class="modal fade" id="agendaModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div>
-          <h5 class="modal-title" id="agendaTitulo">Agendar</h5>
-          <small class="text-muted" id="agendaSubtitulo"></small>
-        </div>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-
-      <div class="modal-body">
-        <!-- agregar otro servicio -->
-        <a href="productos.html" class="btn btn-light w-100 mb-3 text-start">
-          <i class="bi bi-plus-lg me-2"></i>Agregar otro servicio
-        </a>
-
-        <!-- ¿Quién te atiende? -->
-        <div class="mb-3">
-          <label class="form-label fw-semibold">¿Quién prefieres que te atienda?</label>
-          <div id="terapeutas" class="d-flex flex-wrap gap-2">
-            <!-- chips generados por JS -->
+  <div class="modal fade" id="agendaModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h5 class="modal-title" id="agendaTitulo">Agendar</h5>
+            <small class="text-muted" id="agendaSubtitulo"></small>
           </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
 
-        <!-- ¿Qué día? -->
-        <div class="mb-3">
-          <label class="form-label fw-semibold">¿Qué día?</label>
-          <div id="dias" class="d-flex flex-wrap gap-2">
-            <!-- días generados por JS -->
-          </div>
-        </div>
+        <div class="modal-body">
+          <!-- agregar otro servicio -->
+          <a href="productos.html" class="btn btn-light w-100 mb-3 text-start">
+            <i class="bi bi-plus-lg me-2"></i>Agregar otro servicio
+          </a>
 
-        <!-- ¿A qué hora? -->
-        <div class="mb-3">
-          <label class="form-label fw-semibold">¿A qué hora?</label>
-          <div class="row g-2">
-            <div class="col-12 col-md-6">
-              <div class="border rounded p-2 mb-2 text-center fw-semibold text-muted">Mañana</div>
-              <div id="slots-am" class="d-grid gap-2">
-                <!-- horas AM -->
-              </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <div class="border rounded p-2 mb-2 text-center fw-semibold text-muted">Tarde</div>
-              <div id="slots-pm" class="d-grid gap-2">
-                <!-- horas PM -->
-              </div>
+          <!-- ¿Quién te atiende? -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">¿Quién prefieres que te atienda?</label>
+            <div id="terapeutas" class="d-flex flex-wrap gap-2">
+              <!-- chips generados por JS -->
             </div>
           </div>
-        </div>
-      </div>
 
-      <div class="modal-footer">
-        <small class="me-auto text-muted" id="resumen">Selecciona terapeuta, día y hora</small>
-        <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button id="btnContinuar" class="btn btn-success" disabled>Continuar</button>
+          <!-- ¿Qué día? -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">¿Qué día?</label>
+            <div id="dias" class="d-flex flex-wrap gap-2">
+              <!-- días generados por JS -->
+            </div>
+          </div>
+
+          <!-- ¿A qué hora? -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">¿A qué hora?</label>
+            <div class="row g-2">
+              <div class="col-12 col-md-6">
+                <div class="border rounded p-2 mb-2 text-center fw-semibold text-muted">Mañana</div>
+                <div id="slots-am" class="d-grid gap-2">
+                  <!-- horas AM -->
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="border rounded p-2 mb-2 text-center fw-semibold text-muted">Tarde</div>
+                <div id="slots-pm" class="d-grid gap-2">
+                  <!-- horas PM -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <small class="me-auto text-muted" id="resumen">Selecciona terapeuta, día y hora</small>
+          <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button id="btnContinuar" class="btn btn-success" disabled>Continuar</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
   <!-- Toasts Bootstrap -->
@@ -190,6 +188,8 @@
   <script type="module" src="js/app.js"></script>
   <script type="module" src="js/carrito.js"></script>
   <script type="module" src="js/agenda.js"></script>
+  <script type="module" src="js/auth-mock.js"></script>
+  <script type="module" src="js/session-ui.js"></script>
 </body>
 
 </html>
