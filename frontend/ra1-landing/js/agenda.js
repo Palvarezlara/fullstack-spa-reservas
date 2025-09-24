@@ -1,5 +1,6 @@
 // js/agenda.js
 
+import { SERVICIOS } from './data.js';
 // ---- Datos mock de terapeutas ----
 const TERAPEUTAS = [
   { id: 'vis', nombre: 'Viviana Schiappacasse' },
@@ -165,12 +166,13 @@ function bindAgendaEvents() {
 // ---- Abrir modal desde cualquier card (.btn-agendar) ----
 function openAgendaForSKU(sku) {
   agendaSku = sku;
-  agendaServicio = (window.SERVICIOS || []).find(s => s.sku === sku);
+  agendaServicio = SERVICIOS.find(s => s.sku === sku);
   if (!agendaServicio) { console.warn('SKU no encontrado', sku); return; }
   sel = { terapeuta: 'vis', fecha: null, hora: null };
   renderAgenda();
   new bootstrap.Modal($('#agendaModal')).show();
 }
+window.openAgendaForSKU = openAgendaForSKU;
 
 // ---- Delegación global para los botones Agendar ----
 document.addEventListener('click', (e) => {

@@ -38,11 +38,12 @@ function renderProducto(s) {
   $('#prodPrice').textContent = CLP.format(s.precio);
   $('#prodDesc').textContent = s.descripcion || 'Este servicio ofrece una experiencia de bienestar diseñada para relajar cuerpo y mente.';
 
+
   // Botones
   const btnAdd = $('#btnAdd');
   btnAdd.dataset.sku = s.sku;
   btnAdd.addEventListener('click', () => {
-    // usa addToCart global de carrito.js
+    // addToCart global de carrito.js
     if (typeof window.addToCart === 'function') {
       window.addToCart({ sku: s.sku, nombre: s.nombre, precio: s.precio, qty: 1 });
     } else {
@@ -53,7 +54,7 @@ function renderProducto(s) {
   const btnAgenda = $('#btnAgenda');
   btnAgenda.dataset.sku = s.sku;
   btnAgenda.addEventListener('click', () => {
-    // si agenda.js expone openAgendaForSKU, úsalo; si no, volvemos a productos y abrimos ahí
+    // openAgendaForSKU global de agenda.js
     if (typeof window.openAgendaForSKU === 'function') {
       window.openAgendaForSKU(s.sku);
     } else {

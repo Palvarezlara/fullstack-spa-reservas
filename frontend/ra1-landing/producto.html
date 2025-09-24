@@ -104,7 +104,13 @@
       </section>
     </div>
   </main>
-  <!-- Modal Agendar -->
+
+  <footer class="bg-dark text-light text-center py-3 mt-5">
+    <small>© 2025 SPA del Bosque — Mar–Dom 10:00–20:00</small>
+  </footer>
+
+
+   <!-- Modal: Agendar servicio -->
   <div class="modal fade" id="agendaModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
       <div class="modal-content">
@@ -115,32 +121,49 @@
           </div>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
+
         <div class="modal-body">
+          <!-- agregar otro servicio -->
           <a href="productos.html" class="btn btn-light w-100 mb-3 text-start">
             <i class="bi bi-plus-lg me-2"></i>Agregar otro servicio
           </a>
+
+          <!-- ¿Quién te atiende? -->
           <div class="mb-3">
             <label class="form-label fw-semibold">¿Quién prefieres que te atienda?</label>
-            <div id="terapeutas" class="d-flex flex-wrap gap-2"></div>
+            <div id="terapeutas" class="d-flex flex-wrap gap-2">
+              <!-- chips generados por JS -->
+            </div>
           </div>
+
+          <!-- ¿Qué día? -->
           <div class="mb-3">
             <label class="form-label fw-semibold">¿Qué día?</label>
-            <div id="dias" class="d-flex flex-wrap gap-2"></div>
+            <div id="dias" class="d-flex flex-wrap gap-2">
+              <!-- días generados por JS -->
+            </div>
           </div>
+
+          <!-- ¿A qué hora? -->
           <div class="mb-3">
             <label class="form-label fw-semibold">¿A qué hora?</label>
             <div class="row g-2">
               <div class="col-12 col-md-6">
                 <div class="border rounded p-2 mb-2 text-center fw-semibold text-muted">Mañana</div>
-                <div id="slots-am" class="d-grid gap-2"></div>
+                <div id="slots-am" class="d-grid gap-2">
+                  <!-- horas AM -->
+                </div>
               </div>
               <div class="col-12 col-md-6">
                 <div class="border rounded p-2 mb-2 text-center fw-semibold text-muted">Tarde</div>
-                <div id="slots-pm" class="d-grid gap-2"></div>
+                <div id="slots-pm" class="d-grid gap-2">
+                  <!-- horas PM -->
+                </div>
               </div>
             </div>
           </div>
         </div>
+
         <div class="modal-footer">
           <small class="me-auto text-muted" id="resumen">Selecciona terapeuta, día y hora</small>
           <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -150,9 +173,6 @@
     </div>
   </div>
 
-  <footer class="bg-dark text-light text-center py-3 mt-5">
-    <small>© 2025 SPA del Bosque — Mar–Dom 10:00–20:00</small>
-  </footer>
   <!-- Toasts Bootstrap -->
   <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastArea"></div>
   <!-- Scripts  -->
@@ -161,6 +181,7 @@
   <script type="module" src="js/session-ui.js"></script>
 
   <!-- módulos de la app -->
+  <script type="module" src="js/app.js"></script>
   <script type="module" src="js/data.js"></script>
   <script type="module" src="js/carrito.js"></script>
   <script type="module" src="js/agenda.js"></script>
