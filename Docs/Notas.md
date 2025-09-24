@@ -1,74 +1,12 @@
-Ramas de features
-
-feature/estructura-html
-
-    Objetivo: crear todas las páginas (index, productos, producto, blogs, blog-detalle, nosotros, contacto, login, registro) con HTML semántico y enlaces funcionando.
-
-    Commits sugeridos:
-
-        feat: crear index.html con estructura semántica
-
-        feat: agregar páginas secundarias (productos, blogs, contacto, etc.)
-
-        chore: enlazar todas las páginas en navbar y footer
-
-feature/bootstrap-layout
-
-        Objetivo: integrar Bootstrap (navbar, grid de cards, hero, footer).
-
-        Commits sugeridos:
-
-        feat: integrar Bootstrap CDN en proyecto
-
-        feat: migrar navbar y hero a clases Bootstrap
-
-        feat: maquetar cards de servicios con grid de Bootstrap
-
-        style: ajustes personalizados en bootstrap-overrides.css
-
-feature/localstorage-reservas
-
-        Objetivo: simular reservas/carrito usando localStorage.
-
-        Commits sugeridos:
-
-        feat: guardar reservas en localStorage
-
-        feat: mostrar reservas almacenadas en página de usuario
-
-        fix: corregir duplicados en reservas de localStorage
-
-feature/forms-validation
-
-        Objetivo: formularios (login, registro, contacto) con validación en HTML5 y mensajes dinámicos en JS.
-
-        Commits sugeridos:
-
-        feat: crear formulario de registro con validación HTML5
-
-        feat: validar formulario de contacto con JS (mensajes de error)
-
-        feat: validar login con JS y mostrar alertas
-
-        style: personalizar estilos de formularios
-
-feature/darkmode-tooltips (opcional, pero queda precioso 👀)
-
-        Objetivo: botón de modo oscuro + tooltips/alerts de Bootstrap.
-
-        Commits sugeridos:
-
-        feat: añadir toggle de modo oscuro con localStorage
-
-        feat: integrar tooltips de Bootstrap en botones
-
-        feat: mostrar toast de confirmación al reservar
-
 🔄 Flujo de trabajo para cada feature
 
 1.- Crear rama:
 
-    git checkout -b feature/estructura-html
+    Desde tu terminal, estando en la carpeta del proyecto:
+
+    git checkout main        # asegurarte de estar en main
+    git pull origin main     # traerte la última versión de GitHub
+    git checkout -b feature/nombre
 
 
 2.-Hacer cambios, probar.
@@ -82,75 +20,8 @@ feature/darkmode-tooltips (opcional, pero queda precioso 👀)
 
 4.-En GitHub → abrir Pull Request hacia main.
 
-5.-Revisar (tú misma), hacer merge a main.
-
-6.-Crear la siguiente rama:
-
-    git checkout main
-    git pull origin main
-    git checkout -b feature/bootstrap-layout
-
-------------------------------------------------------
-📌 Paso 1 — Crear la nueva rama de feature
-
-Desde tu terminal, estando en la carpeta del proyecto:
-
-git checkout main        # asegurarte de estar en main
-git pull origin main     # traerte la última versión de GitHub
-git checkout -b feature/estructura-html
-
-📌 Paso 2 — Hacer los primeros cambios
-
-En esta rama vas a dejar listo el esqueleto de todas las páginas (aunque estén vacías).
-
--index.html
-
--productos.html
-
--producto.html
-
--blogs.html
-
---blog-detalle.html
-
--nosotros.html
-
--contacto.html
-
--login.html
-
--registro.html
-
-Con solo <header>, <main> y <footer> ya cumple para el primer commit.
-
-📌 Paso 3 — Primer commit con estilo pro
-git add .
-git commit -m "feat: crear estructura base de páginas (HTML semántico)"
-
-
-🔑 Convención usada:
-
-feat: = nueva funcionalidad.
-
-fix: = corrección de bug.
-
-style: = cambios de diseño/CSS sin lógica.
-
-chore: = tareas de configuración o limpieza.
-
-📌 Paso 4 — Subir la rama a GitHub
-git push -u origin feature/estructura-html
-
-
-Ahora en tu repo aparecerá la rama nueva. 🎉
-
-📌 Paso 5 — Pull Request
-
-1.- Entra a GitHub → verás un aviso tipo “feature/estructura-html had recent pushes. Compare & pull request”.
-
-2.- Abres un Pull Request (PR) hacia main.
-
-3.- Puedes escribir un resumen profesional, ejemplo:
+5.-Revisar, hacer merge a main.
+    Puedes escribir un resumen profesional, ejemplo:
 
         ✨ Estructura inicial
 
@@ -158,45 +29,147 @@ Ahora en tu repo aparecerá la rama nueva. 🎉
 
         Se incluye HTML semántico mínimo (header, main, footer).
 
-4.- Le das Merge.
-
-📌 Paso 6 — Continuar con nuevas ramas
-
-Cada vez que termines una parte:
-
-1.- Regresa a main:
-
-        git checkout main
-        git pull origin main
-
-
-Crea una nueva rama de feature:
-
-git checkout -b feature/bootstrap-layout
-
-Pasos para actualizar tu rama con main:
-Cambia a tu rama: Asegúrate de estar en la rama que quieres actualizar. 
-Código
-
-    git checkout <tu-rama>
-Actualiza tu rama local: Trae los últimos cambios del repositorio remoto a tu rama actual para evitar conflictos. 
-Código
-
-    git pull
-Actualiza main localmente (opcional pero recomendado): Esto asegura que tu rama local main también esté actualizada con la última versión del remoto. 
-Código
+6.-Crear la siguiente rama:
 
     git checkout main
-    git pull
-Vuelve a tu rama y fusiona: Ahora, cambia de nuevo a tu rama de trabajo y ejecuta el comando git merge para traer los cambios de main a tu rama. 
-Código
+    git pull origin main
+    git checkout -b feature/otroNombre
 
-    git checkout <tu-rama>
-    git merge main
-1. Resuelve conflictos (si los hay):
-Si Git encuentra conflictos (cambios en las mismas líneas de un archivo en ambas ramas), detendrá la fusión. Tendrás que abrir los archivos afectados, resolver manualmente los conflictos y luego añadir y confirmar los cambios. 
-2. Sube los cambios al repositorio remoto:
-Una vez que la fusión se ha completado sin conflictos, puedes subir los cambios a tu rama en el repositorio remoto. 
-Código
+------------------------------------------------------
+1) Convenciones de nombres
+Ramas
 
-    git push
+feature/<kebab-case> – nuevas funcionalidades
+Ej: feature/estructura-html, feature/bootstrap-layout, feature/react-migration
+
+fix/<kebab-case> – correcciones de bugs
+Ej: fix/validacion-form-registro
+
+chore/<kebab-case> – tareas de mantenimiento
+Ej: chore/config-eslint
+
+hotfix/<kebab-case> – parche urgente sobre main
+
+🔑 Convención usada para commit:
+
+<tipo>(alcance opcional): <resumen en presente y conciso>
+
+Tipos más usados:
+feat     -> nueva funcionalidad
+fix      -> corrección de bug
+refactor -> cambio interno sin funcionalidad nueva (mejora de código)
+style    -> estilos/markup sin lógica (CSS, formateo)
+chore    -> tareas menores (config, scripts, limpieza)
+docs     -> documentación
+test     -> tests (Jasmine/Karma, etc.)
+build    -> cambios de build, deps
+ci       -> pipelines, acciones
+
+Ejemplos:
+
+feat(producto): abrir modal agenda con SKU
+
+fix(auth): corregir validación de token expirado
+
+style(forms): ajustar spacing en inputs
+
+chore: actualizar .gitignore y scripts npm
+
+Regla de oro: un commit = una idea/cambio coherente.
+
+2) Mantener tu rama al día con main
+
+Opción A: merge (simple y seguro)
+git checkout <tu-rama>
+git fetch origin
+git merge origin/main     # crea un commit de merge
+# resolver conflictos si aparecen
+git add .
+git commit                # si Git lo requiere tras resolver
+git push
+
+Opción B: rebase (historial más lineal)
+git checkout <tu-rama>
+git fetch origin
+git rebase origin/main    # re-aplica tus commits encima de main
+# resolver conflictos (git add .) y continuar
+git rebase --continue
+git push --force-with-lease
+
+
+Usa merge si estás comenzando. Cuando te sientas cómoda, prueba rebase para un historial más limpio.
+
+3) Enfoque para la migración a React
+
+Crea una rama dedicada:
+
+git checkout main
+git pull origin main
+git checkout -b feature/react-migration
+
+
+Sugerencia de sub-tareas (y commits):
+
+chore: inicializar proyecto React (Vite/CRA) y .gitignore
+
+feat(router): configurar rutas (home, productos, producto/:sku, blogs, blog/:id, nosotros, contacto, login, registro)
+
+feat(ui): migrar layout con Bootstrap/React-Bootstrap o clases
+
+feat(state): crear store simple (Context/Redux/Zustand) para auth y carrito
+
+feat(producto): migrar lógica de agenda (modal) y SKU
+
+feat(forms): migrar validaciones con React Hook Form/Yup (si te enseña el ramo, sino HTML5 primero)
+
+refactor: separar componentes (Navbar, Footer, Card, ModalAgenda, etc.)
+
+chore: scripts npm, lint, prettier
+
+docs: actualizar README con instrucciones de ejecución
+
+Tip: mantén la app clásica y la de React en carpetas separadas mientras migras, o crea un repo nuevo para la app React.
+
+###################################################################################################################################
+Comandos de bolsillo
+
+# iniciar repo
+git init
+git remote add origin <URL>
+
+# estado y diferencias
+git status
+git diff
+git log --oneline --graph --decorate --all
+
+# staging y commit
+git add .
+git commit -m "feat: mensaje"
+
+# ramas
+git branch
+git checkout -b feature/react-migration
+git switch -c feature/react-migration      # alternativa moderna
+git switch main
+
+# sincronización
+git fetch origin
+git pull origin main
+git push -u origin feature/react-migration
+git push
+
+# merge y rebase
+git merge origin/main
+git rebase origin/main
+git rebase --continue
+git rebase --abort
+
+# arreglar último commit (mensaje o añadir archivos)
+git commit --amend
+# (si ya lo subiste, push con --force-with-lease)
+git push --force-with-lease
+
+# descartar cambios locales de un archivo
+git checkout -- ruta/archivo
+# o
+git restore ruta/archivo
