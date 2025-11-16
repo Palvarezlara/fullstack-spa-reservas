@@ -13,7 +13,7 @@ Simula un sitio para un SPA con catálogo de servicios, carrito de compras y age
 - **LocalStorage**: simulación de carrito/reservas.
 
 ---
-
+```
 ## 📂 Estructura de carpetas
 ├── index.html
 ├── productos.html
@@ -40,7 +40,7 @@ Simula un sitio para un SPA con catálogo de servicios, carrito de compras y age
 │ └── session-ui.js
 ├── img/
 └── README.md
-
+```
 
 ---
 
